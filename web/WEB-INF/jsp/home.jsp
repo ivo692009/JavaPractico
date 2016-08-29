@@ -3,11 +3,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Listado de clientes</title>
     </head>
     <body>
         <h1>Hola pedazo de mala suerte!</h1>
-        <a href="/nuevo">Cargar cliente</a>
+        <a href="/nuevo">Nuevo cliente</a>
         <br>
         <table>
             <thead>
@@ -38,5 +38,7 @@
                 </tr>
             </tbody>
         </table>
+        <br>
+        <a href="/CrudValde">Volver al listado</a>
     </body>
 </html>
