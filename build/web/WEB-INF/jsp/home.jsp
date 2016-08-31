@@ -1,44 +1,49 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listado de clientes</title>
-    </head>
+<jsp:include page="layout.jsp"></jsp:include>
     <body>
-        <h1>Hola pedazo de mala suerte!</h1>
-        <a href="/nuevo">Nuevo cliente</a>
-        <br>
-        <table>
-            <thead>
-                Clientes
-            </thead>
-            <tbody>
-                <tr>
-                    <th>
-                        Nombre
-                    </th>
-                    <th>
-                        Apellido
-                    </th>
-                    <th>
-                        Edad
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        Jaimito
-                    </td>
-                    <td>
-                        PÃ©rez
-                    </td>
-                    <td>
-                        29
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <a href="/CrudValde">Volver al listado</a>
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6 ">
+                <table class="table table-responsive table-striped table-hover table-condensed">
+                    <thead>
+                        <h3>Clientes</h3>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Apellido
+                            </th>
+                            <th>
+                                Edad
+                            </th>
+                            <th>
+                                Acciones
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Jaimito
+                            </td>
+                            <td>
+                                Pérez
+                            </td>
+                            <td>
+                                29
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver</button>
+                                    <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
+                                    <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                                </div>                                    
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <a class="btn btn-success pull-right" href="/CrudValde/nuevo"><span class="glyphicon glyphicon-plus"></span> Nuevo cliente</a>
+            </div>
+        </div>
     </body>
 </html>
