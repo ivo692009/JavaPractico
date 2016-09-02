@@ -23,6 +23,10 @@ public class NuevoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String[] nacionalidad = {"Argentina", "Perú", "Brasil"};
+        
+        request.setAttribute("nacionalidad", nacionalidad);
+        
         request.getRequestDispatcher("WEB-INF/jsp/nuevo.jsp").forward(request, response);
     }
     
@@ -30,6 +34,6 @@ public class NuevoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        //request.getRequestDispatcher("WEB-INF/jsp/home.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/nuevo.jsp").forward(request, response);
     }
 }
