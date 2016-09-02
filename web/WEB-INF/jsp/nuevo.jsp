@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="layout.jsp"></jsp:include>
     <body>
         <div class="col-xs-offset-3 col-xs-6">

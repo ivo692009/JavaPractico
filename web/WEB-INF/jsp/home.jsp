@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="layout.jsp"></jsp:include>
     <body>
         <div class="row">
@@ -22,15 +23,17 @@
                             </th>
                         </tr>
                         <tr>
-                            <td>
-                                Jaimito
-                            </td>
-                            <td>
-                                Pérez
-                            </td>
-                            <td>
-                                29
-                            </td>
+                            <c:forEach var="cliente" items="${resultado}">
+                                <td>
+                                    ${cliente.nombre}
+                                </td>
+                                <td>
+                                    ${cliente.apellido}
+                                </td>
+                                <td>
+                                    ${cliente.fecha_nac}
+                                </td>
+                            </c:forEach>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver</button>
