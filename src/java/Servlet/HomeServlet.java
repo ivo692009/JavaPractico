@@ -37,10 +37,7 @@ public class HomeServlet extends HttpServlet {
         
             response.setContentType("text/html;charset=UTF-8");
             
-            Context initContext = new InitialContext();
-            Context envContext = (Context) initContext.lookup("java:comp/env");
-            DataSource ds = (DataSource) envContext.lookup("jdbc/clientes");
-            Connection conn = ds.getConnection();
+            Connection conn = ValdeUtils.Conexion.getConnection();
             
             String sql = "SELECT * FROM clientes.clientes";
             PreparedStatement pstmt = conn.prepareStatement(sql);
