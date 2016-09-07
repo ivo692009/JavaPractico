@@ -19,8 +19,5 @@ server.xml
             password="****"
             driverClassName='com.mysql.jdbc.Driver'
             url='jdbc:mysql://localhost/clientes'/>
-    <!-- Editable user database that can also be used by
-         UserDatabaseRealm to authenticate users
-    -->
     <Resource auth="Container" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" name="UserDatabase" pathname="conf/tomcat-users.xml" type="org.apache.catalina.UserDatabase"/>
   </GlobalNamingResources>
