@@ -17,9 +17,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-4 control-label" for="fecha"><b>Fecha de nacimiento:</b></label>
+                    <label class="col-xs-4 control-label" for="fecha_nac"><b>Fecha de nacimiento:</b></label>
                     <div class="col-xs-8">
-                        <input type="date" id="fecha" name="fecha" class="form-control" required autofocus>
+                        <input type="date" id="fecha_nac" name="fecha_nac" class="form-control" required autofocus>
                     </div>
                 </div>
                 <div class="form-group">

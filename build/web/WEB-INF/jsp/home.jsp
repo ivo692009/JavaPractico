@@ -22,8 +22,8 @@
                                 Acciones
                             </th>
                         </tr>
-                        <tr>
-                            <c:forEach var="cliente" items="${resultado}">
+                        <c:forEach var="cliente" items="${resultado}">
+                            <tr>
                                 <td>
                                     ${cliente.nombre}
                                 </td>
@@ -33,15 +33,15 @@
                                 <td>
                                     ${cliente.fecha_nac}
                                 </td>
-                            </c:forEach>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver</button>
-                                    <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
-                                    <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
-                                </div>                                    
-                            </td>
-                        </tr>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-info" href="/CrudValde/ver?id=${cliente.id}"><span class="glyphicon glyphicon-eye-open"></span> Ver</a>
+                                        <a class="btn btn-primary" href="/CrudValde/editar?id=${cliente.id}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                                        <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                                    </div>                                    
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
                 <hr>

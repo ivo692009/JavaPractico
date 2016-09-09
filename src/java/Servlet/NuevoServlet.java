@@ -5,7 +5,6 @@
  */
 package Servlet;
 
-import ValdeUtils.Conexion;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,15 +17,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
 /**
  *
@@ -60,9 +56,7 @@ public class NuevoServlet extends HttpServlet {
             
             request.setAttribute("nacionalidad", nacionalidad);
             
-            String title = null;
-
-            request.setAttribute("Nuevo cliente", title);
+            request.setAttribute("title", "Nuevo cliente");
          
             request.getRequestDispatcher("WEB-INF/jsp/nuevo.jsp").forward(request, response);
             
@@ -74,9 +68,6 @@ public class NuevoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         try {
-        
-            String title = null;
-            request.setAttribute("Nuevo cliente", title);
             
             response.setContentType("text/html;charset=UTF-8");
             
@@ -91,7 +82,7 @@ public class NuevoServlet extends HttpServlet {
                 activo = true;
             }
             
-            SimpleDateFormat df = new SimpleDateFormat("Y-M-d");
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             
             Date fecha_nac = null;
             
@@ -103,7 +94,18 @@ public class NuevoServlet extends HttpServlet {
             
             Connection conn = ValdeUtils.Conexion.getConnection();
             
-            String sql = "INSERT INTO clientes.clientes (nombre, apellido, fecha_nac, nacionalidad, activo) VALUES ?, ?, ?, ?, ?;";
+            String sql = "INSERT INTO clientes.clientes "
+                    + "(nombre,"
+                    + "apellido,"
+                    + "fecha_nac,"
+                    + "nacionalidad,"
+                    + "activo) "
+                    + "VALUES(?,"
+                    + "?,"
+                    + "?,"
+                    + "?,"
+                    + "?)";
+            
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, nombre);
