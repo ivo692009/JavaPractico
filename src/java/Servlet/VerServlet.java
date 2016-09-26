@@ -51,9 +51,23 @@ public class VerServlet extends HttpServlet {
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();        
 
-            request.setAttribute("resultado", rs);
+            if (rs.next()) {
+                Cliente cliente = new Cliente();
+                
+                cliente.setId(rs.getInt("id"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setActivo(rs.getBoolean("activo"));
+                cliente.setApellido(rs.getString("apellido"));
+                cliente.setFecha_nac(rs.getDate("fecha_nac"));
+                cliente.setNacionalidad(new Nacionalidad(rs.getInt("nacionalidad_id"), conn));
+                
+                request.setAttribute("cliente", cliente);
+                
+                request.setAttribute("title", "Ver cliente " + cliente.toString());
+            }
             
-            request.setAttribute("title", "Ver cliente " + id);
+            pstmt.close();
+            conn.close();
 
             request.getRequestDispatcher("WEB-INF/jsp/ver.jsp").forward(request, response);
             

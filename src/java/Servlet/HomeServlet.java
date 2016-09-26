@@ -54,6 +54,9 @@ public class HomeServlet extends HttpServlet {
             
             request.setAttribute("resultado", resultado);
             
+            pstmt.close();
+            conn.close();
+            
             String title = null;
 
             request.setAttribute("title", "Listado de clientes");

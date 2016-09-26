@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="layout.jsp"></jsp:include>
     <body>
         <div class="col-xs-offset-3 col-xs-6">
@@ -6,7 +7,7 @@
                 <div class="form-group">
                     <label class="col-xs-4 control-label" for="nombre"><b>Nombre:</b></label>
                     <div class="col-xs-8">
-                        <input type="text" value="${cliente.nombre}" id="nombre" name="nombre" class="form-control" placeholder="Nombre" disabled>
+                        <input type="text" value="<c:out value="${cliente.nombre}"/>" id="nombre" name="nombre" class="form-control" placeholder="Nombre" disabled>
                     </div>
                 </div>
                 <div class="form-group">
@@ -25,15 +26,21 @@
                     <label for="nacionalidad" class="col-xs-4 control-label">Nacionalidad:</label>
                     <div class="col-xs-8">
                         <select class="form-control" id="nacionalidad" name="nacionalidad" disabled>
-                            <option value="${cliente.nacionalidad}">${nacionalidad.nacionalidad}</option>
+                            <option value="${cliente.nacionalidad.id}">${cliente.nacionalidad.nacionalidad}</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-4 control-label" for="activo"><b>Activo:</b></label>
                     <div class="col-xs-8">
-                        <input type="radio" id="activo" name="activo" value="si" checked> Si<br>
-                        <input type="radio" id="activo" name="activo" value="no"> No<br>
+                        <c:if test="${cliente.activo}">
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}" checked readonly> Si<br>
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}" readonly> No<br>
+                        </c:if>
+                        <c:if test="${!cliente.activo}">
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}" readonly> Si<br>
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}" checked readonly> No<br>
+                        </c:if>
                     </div>
                 </div>
                 <div class="form-group">

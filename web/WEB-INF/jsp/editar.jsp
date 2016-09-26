@@ -1,32 +1,38 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="layout.jsp"></jsp:include>
     <body>
         <div class="col-xs-offset-3 col-xs-6">
-            <legend>Editar cliente</legend>
-            <form class="form form-horizontal" method="POST" action="/CrudValde/nuevo">
+            <legend>Ver cliente</legend>
+            <form class="form form-horizontal" method="POST" action="/CrudValdeJava/nuevo">
                 <div class="form-group">
                     <label class="col-xs-4 control-label" for="nombre"><b>Nombre:</b></label>
                     <div class="col-xs-8">
-                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                        <input type="text" value="<c:out value="${cliente.nombre}"/>" id="nombre" name="nombre" class="form-control" placeholder="Nombre" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-4 control-label" for="apellido"><b>Apellido:</b></label>
                     <div class="col-xs-8">
-                        <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellido" required>
+                        <input type="text" value="${cliente.apellido}" id="apellido" name="apellido" class="form-control" placeholder="Apellido">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-4 control-label" for="fecha_nac"><b>Fecha de nacimiento:</b></label>
                     <div class="col-xs-8">
-                        <input type="date" id="fecha_nac" name="fecha_nac" class="form-control" required>
+                        <input type="date" value="${cliente.fecha_nac}" id="fecha_nac" name="fecha_nac" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nacionalidad" class="col-xs-4 control-label">Nacionalidad:</label>
                     <div class="col-xs-8">
-                        <select class="form-control" id="nacionalidad" name="nacionalidad" required>
-                            <c:forEach var="pais" items="${nacionalidad}">
-                                <option value="${pais}">${nacionalidad}</option>
+                        <select class="form-control" id="nacionalidad" name="nacionalidad">
+                            <c:forEach items="${nacionalidades}" var="nacionalidad">
+                                <c:if test="${nacionalidad.id == cliente.nacionalidad.id}">
+                                    <option value="${nacionalidad.id}" selected>${nacionalidad.nacionalidad}</option>
+                                </c:if>
+                                 <c:if test="${nacionalidad.id != cliente.nacionalidad.id}">
+                                    <option value="${nacionalidad.id}">${nacionalidad.nacionalidad}</option>
+                                </c:if>
                             </c:forEach>
                         </select>
                     </div>
@@ -34,8 +40,14 @@
                 <div class="form-group">
                     <label class="col-xs-4 control-label" for="activo"><b>Activo:</b></label>
                     <div class="col-xs-8">
-                        <input type="radio" id="activo" name="activo" value="si" checked> Si<br>
-                        <input type="radio" id="activo" name="activo" value="no"> No<br>
+                        <c:if test="${cliente.activo}">
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}" checked> Si<br>
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}"> No<br>
+                        </c:if>
+                        <c:if test="${!cliente.activo}">
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}"> Si<br>
+                            <input type="radio" id="activo" name="activo" value="${cliente.activo}" checked> No<br>
+                        </c:if>
                     </div>
                 </div>
                 <div class="form-group">

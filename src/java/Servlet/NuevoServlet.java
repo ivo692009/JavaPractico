@@ -31,6 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "NuevoServlet", urlPatterns = {"/nuevo"})
 public class NuevoServlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -65,6 +66,7 @@ public class NuevoServlet extends HttpServlet {
         }        
     }
     
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         try {
@@ -98,7 +100,7 @@ public class NuevoServlet extends HttpServlet {
                     + "(nombre,"
                     + "apellido,"
                     + "fecha_nac,"
-                    + "nacionalidad,"
+                    + "nacionalidad_id,"
                     + "activo) "
                     + "VALUES(?,"
                     + "?,"
@@ -116,7 +118,10 @@ public class NuevoServlet extends HttpServlet {
             
             pstmt.execute();
             
-            request.getRequestDispatcher("WEB-INF/jsp/home.jsp").forward(request, response);
+            pstmt.close();
+            conn.close();
+            
+            response.sendRedirect("/CrudValde/home");
             
         } catch (NamingException | SQLException ex) {
             Logger.getLogger(NuevoServlet.class.getName()).log(Level.SEVERE, null, ex);
