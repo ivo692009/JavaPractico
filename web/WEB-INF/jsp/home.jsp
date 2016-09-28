@@ -35,8 +35,8 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-info" href="/CrudValde/ver?id=${cliente.id}"><span class="glyphicon glyphicon-eye-open"></span> Ver</a>
-                                        <a class="btn btn-primary" href="/CrudValde/editar?id=${cliente.id}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                                        <a class="btn btn-info" href="/JavaPractico/ver?id=${cliente.id}"><span class="glyphicon glyphicon-eye-open"></span> Ver</a>
+                                        <a class="btn btn-primary" href="/JavaPractico/editar?id=${cliente.id}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
                                         <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
                                     </div>                                    
                                 </td>
@@ -45,7 +45,7 @@
                     </tbody>
                 </table>
                 <hr>
-                <a class="btn btn-success pull-right" href="/CrudValde/nuevo"><span class="glyphicon glyphicon-plus"></span> Nuevo cliente</a>
+                <a class="btn btn-success pull-right" href="/JavaPractico/nuevo"><span class="glyphicon glyphicon-plus"></span> Nuevo cliente</a>
             </div>
         </div>
     </body>

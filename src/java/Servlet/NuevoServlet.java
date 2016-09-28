@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Servlet;
 
 import java.io.IOException;
@@ -24,10 +20,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author universidad
- */
 @WebServlet(name = "NuevoServlet", urlPatterns = {"/nuevo"})
 public class NuevoServlet extends HttpServlet {
 
@@ -40,7 +32,7 @@ public class NuevoServlet extends HttpServlet {
         
             response.setContentType("text/html;charset=UTF-8");
             
-            Connection conn = ValdeUtils.Conexion.getConnection();
+            Connection conn = Utilidades.Conexion.getConnection();
             
             String sql = "SELECT * FROM clientes.nacionalidades";
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -94,7 +86,7 @@ public class NuevoServlet extends HttpServlet {
                 Logger.getLogger(NuevoServlet.class.getName()).log(Level.SEVERE, null, e);
             }
             
-            Connection conn = ValdeUtils.Conexion.getConnection();
+            Connection conn = Utilidades.Conexion.getConnection();
             
             String sql = "INSERT INTO clientes.clientes "
                     + "(nombre,"
@@ -121,7 +113,7 @@ public class NuevoServlet extends HttpServlet {
             pstmt.close();
             conn.close();
             
-            response.sendRedirect("/CrudValde/home");
+            response.sendRedirect("/JavaPractico/home");
             
         } catch (NamingException | SQLException ex) {
             Logger.getLogger(NuevoServlet.class.getName()).log(Level.SEVERE, null, ex);

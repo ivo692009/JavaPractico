@@ -3,7 +3,7 @@
     <body>
         <div class="col-xs-offset-3 col-xs-6">
             <legend>Ver cliente</legend>
-            <form class="form form-horizontal" method="POST" action="/CrudValdeJava/nuevo">
+            <form class="form form-horizontal" method="POST" action="/JavaPractico/nuevo">
                 <div class="form-group">
                     <label class="col-xs-4 control-label" for="nombre"><b>Nombre:</b></label>
                     <div class="col-xs-8">
@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-xs-offset-4 col-xs-8">
-                        <a class="btn btn-primary" href="/CrudValde/home">
+                        <a class="btn btn-primary" href="/JavaPracticoe/home">
                             <span class="glyphicon glyphicon-chevron-left"></span> Volver al listado
                         </a>
                         <button type="submit" class="btn btn-success pull-right">
